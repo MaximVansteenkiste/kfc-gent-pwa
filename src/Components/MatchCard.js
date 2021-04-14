@@ -23,7 +23,7 @@ const Outcome = ({
 
   if (homeTeamGoals === null && !subscript) {
     return (
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center content-center">
         <div className="opacity-70 text-xs font-thin">{`${twoDigits(
           date.getHours()
         )}:${twoDigits(date.getMinutes())}`}</div>

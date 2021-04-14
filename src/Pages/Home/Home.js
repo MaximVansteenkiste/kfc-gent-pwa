@@ -1,12 +1,24 @@
-import Card from "../../Components/Card"
+import Card from "../../Components/Card";
+import MatchCard from "../../Components/MatchCard";
+import { useLastPlayedMatch, useUpcomingMatch } from "../../Hooks/Api/api";
 
 const Home = () => {
-    return (
-        <>
-            <Card>Jowkens</Card>
-            <Card>Hallo</Card>
-        </>
-    )
-}
+  const { isLoading: upcomingMatchLoading, upcomingMatch } = useUpcomingMatch();
+  const {
+    isLoading: lastPlayedMatchLoading,
+    lastPlayedMatch,
+  } = useLastPlayedMatch();
 
-export default Home
+  if (upcomingMatchLoading || lastPlayedMatchLoading) {
+    return <div>laden...</div>;
+  }
+
+  return (
+    <>
+      <MatchCard match={lastPlayedMatch} />
+      <MatchCard match={upcomingMatch} />
+    </>
+  );
+};
+
+export default Home;

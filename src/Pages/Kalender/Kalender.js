@@ -4,8 +4,8 @@ import MatchCard from "../../Components/MatchCard";
 import { useTeamCalendar } from "../../Hooks/Api/api";
 
 const Kalender = () => {
-  const [isLoading, error, teamCalendar] = useTeamCalendar();
-  
+  const { isLoading, error, teamCalendar } = useTeamCalendar();
+
   if (isLoading) {
     return (
       <>
